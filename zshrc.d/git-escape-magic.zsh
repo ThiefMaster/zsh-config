@@ -1,0 +1,1 @@
+../thirdparty/zsh-git-escape-magic/git-escape-magic

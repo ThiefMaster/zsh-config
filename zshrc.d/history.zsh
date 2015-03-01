@@ -1,0 +1,4 @@
+# vim: ts=4 sw=4
+HISTFILE=~/.zsh_history
+HISTSIZE=30000
+SAVEHIST=25000
