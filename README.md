@@ -20,7 +20,7 @@ code.
 Install globally
 ----------------
 
-If you are the only user of a machiumachine, it might be nice to install it
+If you are the only user of a machine, it might be nice to install it
 globally for all users (such as your primary user, root, and any other account
 you might use).
 
