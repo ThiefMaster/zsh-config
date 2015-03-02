@@ -10,11 +10,11 @@ add-zsh-hook preexec _prompt_preexec
 add-zsh-hook precmd _prompt_precmd
 integer _prompt_next_command _prompt_last_command
 
-_prompt_preexec() {
+function _prompt_preexec() {
 	(( _prompt_next_command++ ))
 }
 
-_prompt_precmd() {
+function _prompt_precmd() {
 	setopt localoptions
 	local endsign host_color user_color last_was_empty
 	host_color='%F{33}'

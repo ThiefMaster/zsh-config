@@ -20,7 +20,7 @@ autoload -Uz run-help
 unalias run-help 2>/dev/null
 
 # Interactive mv
-imv() {
+function imv() {
 	local src dst
 	for src; do
 		[[ -e $src ]] || { print -Pu2 "%F{red}%B$src: No such file or directory%b%f"; continue }

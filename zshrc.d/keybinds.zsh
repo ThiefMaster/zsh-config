@@ -1,6 +1,6 @@
 # vim: ts=4 sw=4
 # INS, DEL, etc.
-_delete-char-or-region() {
+function _delete-char-or-region() {
 	[[ $REGION_ACTIVE -eq 1 ]] && zle kill-region || zle delete-char
 }
 zle -N _delete-char-or-region
@@ -38,7 +38,7 @@ bindkey '^[p'				copy-prev-shell-word
 bindkey -s ${terminfo[kf5]}	'\C-U unset _custom_zsh_config_loaded; source ~/.zshrc\n'
 
 # Quickly jump right after the first word (e.g. to insert switches)
-_after-first-word() {
+function _after-first-word() {
 	zle beginning-of-line
 	zle forward-word
 }
@@ -47,7 +47,7 @@ bindkey '\C-X1' _after-first-word
 
 # Extended word movements/actions
 autoload -Uz select-word-style
-_zle-with-style() {
+function _zle-with-style() {
 	local style
 	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
 	[[ $BUFFER =~ '^\s+$' ]] && style=shell || style=$2
@@ -57,14 +57,14 @@ _zle-with-style() {
 	select-word-style normal
 }
 
-_backward-word()		{ _zle-with-style backward-word			bash }
-_forward-word()			{ _zle-with-style forward-word			bash }
-_backward-arg()			{ _zle-with-style backward-word			shell }
-_forward-arg()			{ _zle-with-style forward-word			shell }
-_backward-kill-arg()	{ _zle-with-style backward-kill-word 	shell }
-_forward-kill-arg()		{ _zle-with-style kill-word 			shell }
-_backward-kill-word()	{ _zle-with-style backward-kill-word 	normal }
-_backward-kill-path()	{ _zle-with-style backward-kill-word 	normal	'/' }
+function _backward-word()		{ _zle-with-style backward-word			bash }
+function _forward-word()		{ _zle-with-style forward-word			bash }
+function _backward-arg()		{ _zle-with-style backward-word			shell }
+function _forward-arg()			{ _zle-with-style forward-word			shell }
+function _backward-kill-arg()	{ _zle-with-style backward-kill-word 	shell }
+function _forward-kill-arg()	{ _zle-with-style kill-word 			shell }
+function _backward-kill-word()	{ _zle-with-style backward-kill-word 	normal }
+function _backward-kill-path()	{ _zle-with-style backward-kill-word 	normal	'/' }
 
 zle -N _backward-word
 zle -N _forward-word
@@ -86,8 +86,7 @@ bindkey '\C-f'		_backward-kill-path
 
 # Allow more powerful history-i-search (multiple uses in the same line)
 autoload -Uz narrow-to-region
-function _history-incremental-preserving-pattern-search-backward
-{
+function _history-incremental-preserving-pattern-search-backward() {
 	local state tmp
 	MARK=CURSOR  # magick, else multiple ^R don't work
 	narrow-to-region -p "$LBUFFER${BUFFER:+>>}" -P "${BUFFER:+<<}$RBUFFER" -S state

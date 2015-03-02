@@ -53,7 +53,7 @@ zstyle ':completion:*:*:*:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
 # Use ls-colors for path completions
-_set-list-colors() {
+function _set-list-colors() {
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	unfunction _set-list-colors
 }
