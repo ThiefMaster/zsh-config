@@ -59,3 +59,9 @@ virtualenv.
 
 The autovenv check runs in a `chpwd` hook so after editing the file you will
 have to `cd .` to trigger it if you are already in the directory you added.
+
+Prompt
+------
+
+The hostname color in the prompt can be overridden by setting `ZSH_HOST_COLOR`
+to any value that's allowed inside `%F{...}`.

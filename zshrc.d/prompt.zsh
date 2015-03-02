@@ -17,7 +17,7 @@ function _prompt_preexec() {
 function _prompt_precmd() {
 	setopt localoptions
 	local endsign host_color user_color last_was_empty
-	host_color='%F{33}'
+	host_color="%F{${ZSH_HOST_COLOR:-33}}"
 
 	# Check if the last command was empty (always show that case as successful)
 	if (( _prompt_next_command == _prompt_last_command )); then
