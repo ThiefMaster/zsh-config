@@ -35,7 +35,3 @@ function _autovenv_chpwd() {
 	fi
 }
 sched 0 _autovenv_chpwd  # run after we are done loading configs
-
-# Define the venv variable - to be filled in a custom .zshrc
-typeset -A auto_venv
-auto_venv=()
