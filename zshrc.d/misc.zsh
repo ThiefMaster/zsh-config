@@ -1,6 +1,6 @@
 # vim: ts=4 sw=4
 # Pretty dircolors
-eval `dircolors -b /etc/bash/LS_COLORS`
+eval `dircolors -b $_custom_zsh_config_base/ls_colors`
 
 # Prettier ZLE highlighting
 zle_highlight=(region:standout special:fg=199 isearch:fg=220)
