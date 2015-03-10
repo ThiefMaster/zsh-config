@@ -71,7 +71,12 @@ function +vi-git-untracked() {
 function +vi-git-fancybranch() {
 	if [[ $hook_com[branch] == *... ]]; then
 		# get a nice branch name such as master~1
-		hook_com[branch]="%F{1}($(${vcs_comm[cmd]} describe --contains --all HEAD))"
+		local fancy=$($vcs_comm[cmd] describe --contains --all HEAD 2>/dev/null)
+		if [[ -n $fancy ]]; then
+			hook_com[branch]="%F{1}($fancy)"
+		else
+			hook_com[branch]="%F{1}(${hook_com[branch]})"
+		fi
 	elif [[ $hook_com[branch] == remotes/* ]]; then
 		# for a remote we just need to add the () around it and colorize it
 		hook_com[branch]="%F{1}(${hook_com[branch]})"
