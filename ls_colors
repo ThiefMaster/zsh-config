@@ -22,7 +22,7 @@
 
 
 BLK                   38;5;68
-CAPABILITY            38;5;17
+CAPABILITY            48;5;22;38;5;253
 CHR                   38;5;113;1
 DIR                   38;5;30
 DOOR                  38;5;127
