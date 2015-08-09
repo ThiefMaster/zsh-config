@@ -1,5 +1,6 @@
 from __future__ import print_function, unicode_literals
 
+import codecs
 import os
 import re
 import sys
@@ -7,11 +8,15 @@ import sys
 
 def main():
     try:
-        pwd = sys.argv[1].rstrip('/') + '/'
+        pwd = sys.argv[1]
+        if hasattr(pwd, 'decode'):
+            # in python2 we get a bytestring
+            pwd = pwd.decode(sys.stdin.encoding)
+        pwd = pwd.rstrip('/') + '/'
     except IndexError:
         print('usage: {0} DIR'.format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
-    with open(os.path.expanduser('~/.autovenv')) as f:
+    with codecs.open(os.path.expanduser('~/.autovenv'), 'r', 'utf-8') as f:
         entries = dict(map(os.path.expanduser, re.split(r'\s+', line.strip()))
                        for line in f
                        if line.strip() and not line.startswith('#'))
