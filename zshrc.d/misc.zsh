@@ -3,7 +3,7 @@
 eval `dircolors -b $_custom_zsh_config_base/ls_colors`
 
 # Prettier ZLE highlighting
-zle_highlight=(region:standout special:fg=199 isearch:fg=220)
+zle_highlight=(region:standout special:fg=199 isearch:fg=220 paste:fg=111 suffix:fg=177)
 
 # Auto-quote meta chars in URLs and Git refspecs
 autoload -Uz url-quote-magic
