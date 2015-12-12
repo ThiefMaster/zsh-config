@@ -48,6 +48,8 @@ bindkey '\C-X1' _after-first-word
 # Extended word movements/actions
 autoload -Uz select-word-style
 function _zle-with-style() {
+	setopt localoptions
+	unsetopt warn_create_global
 	local style
 	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
 	[[ $BUFFER =~ '^\s+$' ]] && style=shell || style=$2
