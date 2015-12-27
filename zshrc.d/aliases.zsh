@@ -16,3 +16,6 @@ type hub > /dev/null && alias git='hub'
 alias dmesg='dmesg --color --reltime'
 
 alias alf='autoload -Uz'
+
+# Gentoo specific
+alias euses='euses -c'
