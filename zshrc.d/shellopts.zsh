@@ -55,7 +55,7 @@ setopt		NOMATCH
 unsetopt	NULL_GLOB
 setopt		NUMERIC_GLOB_SORT
 setopt		RC_EXPAND_PARAM
-setopt		REMATCH_PCRE
+unsetopt	REMATCH_PCRE
 unsetopt	SH_GLOB
 setopt		UNSET
 setopt		WARN_CREATE_GLOBAL
