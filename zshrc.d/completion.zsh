@@ -9,6 +9,9 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3)) numeric)'
 
+# Automatically update PATH entries
+zstyle ':completion:*' rehash true
+
 # Use menu completion
 zstyle ':completion:*' menu select
 
