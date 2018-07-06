@@ -58,7 +58,7 @@ setopt		RC_EXPAND_PARAM
 unsetopt	REMATCH_PCRE
 unsetopt	SH_GLOB
 setopt		UNSET
-setopt		WARN_CREATE_GLOBAL
+unsetopt	WARN_CREATE_GLOBAL
 
 # History
 setopt		APPEND_HISTORY
