@@ -12,6 +12,10 @@ bindkey ${terminfo[kpp]}	up-line-or-search
 bindkey ${terminfo[knp]}	down-line-or-search
 bindkey '\e[1~'				beginning-of-line		# HOME in putty
 bindkey '\e[4~'				end-of-line				# END in putty
+bindkey "^[[H"				beginning-of-line
+bindkey "^[[F"				end-of-line
+bindkey "^[[1;5C"			forward-word
+bindkey "^[[1;5D"			backward-word
 
 # Easy access to previous args
 autoload -Uz copy-earlier-word
