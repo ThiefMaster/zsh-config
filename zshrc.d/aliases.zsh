@@ -19,3 +19,6 @@ alias alf='autoload -Uz'
 
 # Gentoo specific
 alias euses='euses -c'
+
+# Use a decent httpie style
+alias http='http --style=solarized'
