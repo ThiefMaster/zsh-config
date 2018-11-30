@@ -12,10 +12,8 @@ bindkey ${terminfo[kpp]}	up-line-or-search
 bindkey ${terminfo[knp]}	down-line-or-search
 bindkey '\e[1~'				beginning-of-line		# HOME in putty
 bindkey '\e[4~'				end-of-line				# END in putty
-bindkey "^[[H"				beginning-of-line
-bindkey "^[[F"				end-of-line
-bindkey "^[[1;5C"			forward-word
-bindkey "^[[1;5D"			backward-word
+bindkey "\e[H"				beginning-of-line
+bindkey "\e[F"				end-of-line
 
 # Easy access to previous args
 autoload -Uz copy-earlier-word
@@ -82,8 +80,12 @@ zle -N _backward-kill-word
 zle -N _backward-kill-path
 
 bindkey '\C-[OD'	_backward-word		# ctrl-left
+bindkey "\e[1;5D"	_backward-word		# ctrl-left
 bindkey '\C-[OC'	_forward-word		# ctrl-right
+bindkey "\e[1;5C"	_forward-word		# ctrl-right
 bindkey '\e\e[D'	_backward-arg		# alt-left
+bindkey '\e[1;3D'	_backward-arg		# alt-left
+bindkey '\e[1;3C'	_forward-arg		# alt-right
 bindkey '\e\e[C'	_forward-arg		# alt-right
 bindkey '\e\C-?'	_backward-kill-arg	# alt-backspace
 bindkey '\e\e[3~'	_forward-kill-arg	# alt-del
