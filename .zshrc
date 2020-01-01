@@ -4,7 +4,7 @@
 _custom_zsh_config_base="${${(%):-%x}:A:h}"
 
 # bail out if global config is disabled
-[[ $_custom_zsh_config_base == */etc/* && $_custom_zsh_no_global == 1 ]] && return
+[[ ($_custom_zsh_config_base == /etc/* || ($_custom_zsh_config_base == /opt/*)) && $_custom_zsh_no_global == 1 ]] && return
 
 # bail out if we are already loaded
 if (( _custom_zsh_config_loaded )); then
