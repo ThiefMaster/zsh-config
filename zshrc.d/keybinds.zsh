@@ -96,6 +96,7 @@ bindkey '\e[1;3C'	_forward-arg		# alt-right
 bindkey '\e\e[C'	_forward-arg		# alt-right
 bindkey '\e\C-?'	_backward-kill-arg	# alt-backspace
 bindkey '\e\e[3~'	_forward-kill-arg	# alt-del
+bindkey '\e[3;3~'	_forward-kill-arg	# alt-del
 bindkey '\C-w'		_backward-kill-word
 bindkey '\C-f'		_backward-kill-path
 
