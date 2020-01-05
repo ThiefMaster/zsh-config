@@ -34,3 +34,6 @@ function imv() {
 autoload -Uz age
 autoload -Uz zargs
 autoload -Uz zcalc
+
+# Avoid duplicates in $PATH
+typeset -U PATH path
