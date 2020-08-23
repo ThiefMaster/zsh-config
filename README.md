@@ -60,6 +60,12 @@ virtualenv.
 The autovenv check runs in a `chpwd` hook so after editing the file you will
 have to `cd .` to trigger it if you are already in the directory you added.
 
+Note: You cannot use `pyenv-virtualenv` and *autovenv* simultaneously as having
+two utils activating/deactivating virtualenvs is a source for problems. You can
+either disable *autovenv* by not having a `~/.autovenv` file or `pyenv-virtualenv`
+by not running its init command (nor putting it in your `~/.zshrc`). Using plain
+`pyenv` is fine by the way.
+
 Prompt
 ------
 
