@@ -114,3 +114,8 @@ zle -N _history-incremental-preserving-pattern-search-backward
 bindkey '^r' _history-incremental-preserving-pattern-search-backward
 bindkey -M isearch '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
+
+# Allow replacing strings in the current input with alt+r
+autoload -Uz replace-string
+zle -N replace-string
+bindkey '^[r' replace-string
