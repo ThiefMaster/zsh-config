@@ -43,12 +43,12 @@ mappings which will automatically load the specified virtualenv if you are
 inside the specified directory. The syntax is quite simple:
 
 ```ini
-# By default we want a Python 2 virtualenv
-DEFAULT                 ~/.python2-env
-# Misc scripts are using Python 3 though
-~/dev/misc              ~/.python3-env
-# The coolproject folder has an `env` subdirectory
-~/dev/coolproject       env
+# By default we want a Python 3 virtualenv
+DEFAULT                 ~/.python3-venv
+# Some legacy thing uses Python 2 though (yikes!)
+~/dev/legacy            ~/.python2-venv
+# The coolproject folder has a `.venv` subdirectory
+~/dev/coolproject       .venv
 # In /tmp we don't manage the virtualenv at all
 /tmp                    IGNORE
 ```
