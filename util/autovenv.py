@@ -6,6 +6,13 @@ import re
 import sys
 
 
+def _open(path):
+    if sys.version_info >= (3, 14):
+        return open(path, 'r', encoding='utf-8')
+    else:
+        return codecs.open(path, 'r', 'utf-8')
+
+
 def main():
     try:
         pwd = sys.argv[1]
@@ -16,7 +23,7 @@ def main():
     except IndexError:
         print('usage: {0} DIR'.format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
-    with codecs.open(os.path.expanduser('~/.autovenv'), 'r', 'utf-8') as f:
+    with _open(os.path.expanduser('~/.autovenv')) as f:
         entries = dict(map(os.path.expanduser, re.split(r'\s+', line.strip()))
                        for line in f
                        if line.strip() and not line.startswith('#'))
